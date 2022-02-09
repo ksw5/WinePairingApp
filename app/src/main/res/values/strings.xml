@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Wine Pairing</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="menu_title_pairings">Pairings</string>
+    <string name="menu_title_favs">Favorites</string>
+    <string name="instructions">Enter a food, entree, or cuisine</string>
+    <string name="et_hint">Ex. goat cheese</string>
+    <string name="search_button">Search</string>
+</resources>

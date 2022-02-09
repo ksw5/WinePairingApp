@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.fragments.PairingFragment">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="?attr/colorPrimary" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wine"
+                app:layout_collapseMode="parallax" />
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/instructions"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/userItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/et_hint" />
+
+            <Button
+                android:id="@+id/searchBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_corners"
+                android:text="@string/search_button" />
+
+            <TextView
+                android:id="@+id/pairingWines"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                tools:text="Merlot, Cabernet, Syrah "/>
+
+            <TextView
+                android:id="@+id/pairingInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                tools:text="This is a sample of the info that will be displayed with pictures and items of wine " />
+
+            <com.sackcentury.shinebuttonlib.ShineButton
+                android:id="@+id/favBtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:src="@android:color/darker_gray"
+                app:btn_color="@android:color/darker_gray"
+                app:btn_fill_color="#FF6666"
+                app:allow_random_color="false"
+                app:enable_flashing="false"
+                app:big_shine_color="#FF6666"
+                app:click_animation_duration="200"
+                app:shine_animation_duration="1500"
+                app:shine_turn_angle="10"
+                app:small_shine_offset_angle="20"
+                app:shine_distance_multiple="1.5"
+                app:small_shine_color="#CC9999"
+                app:shine_count="8"
+                app:siShape="@raw/heart"
+                android:visibility="invisible"/>
+
+            <ImageView
+                android:id="@+id/wineImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/productTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                tools:text="This is a sample of the info " />
+
+            <TextView
+                android:id="@+id/productInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                tools:text="This is a sample of the info that will be displayed with pictures and items of wine " />
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
