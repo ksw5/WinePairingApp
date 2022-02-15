@@ -18,6 +18,7 @@ Build System : [Gradle](https://gradle.org/)
 A spoonacular api key is required to run this app.
 
 ### Android Architecture Components
+The application is built using MVVM Single-Activity Architecture with multiple fragments.
 
 - LiveData
 - ViewModel
