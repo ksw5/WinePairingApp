@@ -124,12 +124,3 @@ class PairingFragment : Fragment() {
 
 
 }
-
-/*val productMatchesJson =
-                    "{ 'imageUrl':'' }"
-
-                val gson = Gson()
-
-                val productMatchesObject: ProductMatches =
-                    gson.fromJson(productMatchesJson, ProductMatches::class.java)
-                val imageUrl = productMatchesObject.imageUrl*/
