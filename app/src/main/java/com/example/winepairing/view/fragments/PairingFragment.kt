@@ -10,9 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
+import com.example.winepairing.WineApplication
 import com.example.winepairing.databinding.FragmentPairingBinding
 import com.example.winepairing.utils.hideKeyboard
 import com.example.winepairing.viewmodel.PairingsViewModel
+import com.example.winepairing.viewmodel.PairingsViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
@@ -20,7 +23,9 @@ import kotlin.math.roundToInt
 class PairingFragment : Fragment() {
     private var _binding: FragmentPairingBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: PairingsViewModel by activityViewModels()
+    val viewModel: PairingsViewModel by activityViewModels() {
+        PairingsViewModelFactory((activity?.application as WineApplication).database.wineDao())
+    }
 
 
     override fun onCreateView(
@@ -52,6 +57,22 @@ class PairingFragment : Fragment() {
 
             }
         }
+
+        binding.favBtn.setOnClickListener {
+            viewModel.apiResponse.observe(viewLifecycleOwner) {
+                lifecycleScope.launch {
+                    viewModel.insert(it.productMatches)
+                    Snackbar.make(requireView(), "SAVED", Snackbar.LENGTH_SHORT).show()
+//                    if (viewModel.wineExists(it.productMatches?.get(0)?.id!!)) {
+//                        binding.favBtn.isChecked = true
+//                    }
+                }
+
+            }
+
+
+
+        }
         return view
     }
 
@@ -80,6 +101,8 @@ class PairingFragment : Fragment() {
             Toast.LENGTH_LONG
         ).show()
     }
+
+
 
     private fun getResults() {
         viewModel.apiResponse.observe(viewLifecycleOwner) { response ->
